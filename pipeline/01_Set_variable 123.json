@@ -17,21 +17,7 @@
 				}
 			},
 			{
-				"name": "Set width",
-				"type": "SetVariable",
-				"dependsOn": [],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "breadth",
-					"value": "30"
-				}
-			},
-			{
-				"name": "Set area",
+				"name": "Set variable1",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -41,7 +27,7 @@
 						]
 					},
 					{
-						"activity": "Set width",
+						"activity": "width",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -54,10 +40,21 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "area",
-					"value": {
-						"value": "@{mul(int(variables(\r\n'length'\r\n)),int(variables(\r\n'breadth'\r\n)))}",
-						"type": "Expression"
-					}
+					"value": "100"
+				}
+			},
+			{
+				"name": "width",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "breadth",
+					"value": "20"
 				}
 			}
 		],
