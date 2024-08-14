@@ -17,7 +17,7 @@
 				}
 			},
 			{
-				"name": "Set variable1",
+				"name": "area",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -40,7 +40,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "area",
-					"value": "100"
+					"value": {
+						"value": "@{mul(int(variables(\n'length'\n)),int(variables(\n'breadth'\n)))}",
+						"type": "Expression"
+					}
 				}
 			},
 			{
