@@ -1,0 +1,17 @@
+{
+	"name": "LS_AzureSQLDatabase_retail_db",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "sunitha-sandbox-databaseserver.database.windows.net",
+			"database": "retail_db",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "rootadmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDg2MjY5NUQ3LUYwMkEtNERBNS1BRTE4LTY1RjYxOTRGRjNDMF9kOWQ4ZTdhZi0wZGRhLTQ0MzUtOTQwYy02Mzg3NmIyMWRlMzUiDQp9"
+		}
+	}
+}
