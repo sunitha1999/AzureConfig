@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "names",
+				"name": "ForEach1",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -44,10 +44,57 @@
 					"items": {
 						"value": "@activity('Lookup1').output.value",
 						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Append variable1",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "fileName",
+								"value": {
+									"value": "@item().name",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "AllFileName",
+					"value": {
+						"value": "@variables('fileName')",
+						"type": "Expression"
 					}
 				}
 			}
 		],
+		"variables": {
+			"fileName": {
+				"type": "Array"
+			},
+			"AllFileName": {
+				"type": "Array"
+			}
+		},
 		"annotations": []
 	}
 }
