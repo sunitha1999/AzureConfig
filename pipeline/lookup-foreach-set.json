@@ -1,5 +1,5 @@
 {
-	"name": "lookup-foreach",
+	"name": "lookup-foreach-set",
 	"properties": {
 		"activities": [
 			{
@@ -92,6 +92,9 @@
 				"type": "Array"
 			},
 			"AllFileName": {
+				"type": "Array"
+			},
+			"name": {
 				"type": "Array"
 			}
 		},
