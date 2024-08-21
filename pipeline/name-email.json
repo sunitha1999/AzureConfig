@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT Name, Email from dbo.users",
+						"sqlReaderQuery": "SELECT TOP 5 [name], [email] from dbo.users",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -29,7 +29,7 @@
 				}
 			},
 			{
-				"name": "AllUserDetails",
+				"name": "userDetails",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -50,10 +50,11 @@
 							"name": "Append variable1",
 							"type": "AppendVariable",
 							"dependsOn": [],
+							"userProperties": [],
 							"typeProperties": {
-								"variableName": "name",
+								"variableName": "userDetails",
 								"value": {
-									"value": "@concat(item().name,\n'-'\n, item().email)",
+									"value": "@concat(item().name,'-', item().email)",
 									"type": "Expression"
 								}
 							}
@@ -66,7 +67,7 @@
 				"type": "SetVariable",
 				"dependsOn": [
 					{
-						"activity": "AllUserDetails",
+						"activity": "userDetails",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -78,7 +79,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "set",
+					"variableName": "AllUserDetails",
 					"value": {
 						"value": "@variables('userDetails')",
 						"type": "Expression"
