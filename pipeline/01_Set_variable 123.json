@@ -1,5 +1,5 @@
 {
-	"name": "01_Set_variable Demo",
+	"name": "01_Set_variable 123",
 	"properties": {
 		"activities": [
 			{
@@ -17,21 +17,7 @@
 				}
 			},
 			{
-				"name": "Set width",
-				"type": "SetVariable",
-				"dependsOn": [],
-				"policy": {
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "breadth",
-					"value": "30"
-				}
-			},
-			{
-				"name": "Set area",
+				"name": "area",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -41,7 +27,7 @@
 						]
 					},
 					{
-						"activity": "Set width",
+						"activity": "width",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -55,9 +41,23 @@
 				"typeProperties": {
 					"variableName": "area",
 					"value": {
-						"value": "@{mul(int(variables(\r\n'length'\r\n)),int(variables(\r\n'breadth'\r\n)))}",
+						"value": "@{mul(int(variables(\n'length'\n)),int(variables(\n'breadth'\n)))}",
 						"type": "Expression"
 					}
+				}
+			},
+			{
+				"name": "width",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "breadth",
+					"value": "20"
 				}
 			}
 		],
